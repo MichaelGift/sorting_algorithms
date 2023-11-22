@@ -1,7 +1,10 @@
 #include "sort.h"
 
 /**
- * counting_sort - sorts an array with the Counting sort algorithm
+ * counting_sort - Sorts an array with the Counting sort algorithm.
+ * counts the occurrences of each value and reconstructs
+ * a sorted array based on this information.
+ * 
  * @array: array to sort
  * @size: size of the array
  */
