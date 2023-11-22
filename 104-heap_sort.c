@@ -19,12 +19,11 @@ void recursive_heap(int *array, int heap, int i, int size)
 
 	if (largest != i)
 	{
-		temp = array[i]; 
-        array[i] = array[largest]; 
-        array[largest] = temp;
+		temp = array[i];
+		array[i] = array[largest];
+		array[largest] = temp;
 
 		print_array(array, size);
-
 		recursive_heap(array, heap, largest, size);
 	}
 }
@@ -48,11 +47,8 @@ void heap_sort(int *array, size_t size)
 		temp = array[0];
 		array[0] = array[i];
 		array[i] = temp;
-
 		if (i > 0)
-			print_array(array, size);
-            
+		print_array(array, size);
 		recursive_heap(array, i, 0, size);
 	}
-
 }

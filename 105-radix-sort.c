@@ -36,42 +36,36 @@ void count_sort(int *array, size_t size, int exp)
 
 	count = init_int_array(10 + 1);
 	if (!count)
-        return;
-    /* Histogram of the number of times a key occurs within the input */
-    for (i = 0; i < size; i++)
-        count[(array[i] / exp) % 10] += 1;
+		return;
 
-    /* Prefix sum computation on count to determine the position range */
-    for (i = 1; i <= 10; i++)
-        count[i] += count[i - 1];
+	for (i = 0; i < size; i++)
+		count[(array[i] / exp) % 10] += 1;
+	for (i = 1; i <= 10; i++)
+		count[i] += count[i - 1];
+	output = init_int_array(size);
 
-    output = init_int_array(size);
-    if (!output)
-    {
-        free(count);
-        return;
-    }
-    /* Moving each item into its sorted position in the output array */
-    for (i = size - 1; (int)i >= 0; i--)
-    {
-        output[count[(array[i] / exp) % 10] - 1] = array[i];
-        count[(array[i] / exp) % 10] -= 1;
-    }
+	if (!output)
+	{
+		free(count);
+		return;
+	}
 
-    for (i = 0; i < size; i++)
-        array[i] = output[i];
-
-    free(output);
-    free(output);
-    
+	for (i = size - 1; (int)i >= 0; i--)
+	{
+		output[count[(array[i] / exp) % 10] - 1] = array[i];
+		count[(array[i] / exp) % 10] -= 1;
+	}
+	for (i = 0; i < size; i++)
+		array[i] = output[i];
+	free(output);
+	free(output);
 }
 
 /**
- * radix_sort - sorts an array of integers using LSD radix sort
- * @array: the array of integers
- * @size: the size of the array
- */
-
+* radix_sort - sorts an array of integers using LSD radix sort
+* @array: the array of integers
+* @size: the size of the array
+*/
 void radix_sort(int *array, size_t size)
 {
 	int k = -1, exp;
@@ -79,10 +73,8 @@ void radix_sort(int *array, size_t size)
 
 	if (size < 2)
 		return;
-
 	for (i = 0; i < size; i++)
 		k = array[i] > k ? array[i] : k;
-
 	for (exp = 1; k / exp > 0; exp *= 10)
 	{
 		count_sort(array, size, exp);
