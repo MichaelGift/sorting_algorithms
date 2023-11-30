@@ -61,3 +61,28 @@ In each pass, the largest unsorted element finds its correct place at the end of
 As a result, the subsequent passes can focus on the remaining unsorted portion of the array, reducing the number of elements that need to be considered. 
 
 This is why the number of passes decreases as the algorithm progresses.
+
+## Pseudocode
+
+```plaintext
+procedure bubbleSort(A: list of sortable items)
+    n = length(A)
+    
+    for i from 0 to n - 1 do
+        for j from 0 to n - i - 1 do
+            // Compare adjacent elements
+            if A[j] > A[j + 1] then
+                // Swap if they are in the wrong order
+                swap(A[j], A[j + 1])
+            end if
+        end for
+    end for
+end procedure
+```
+Explanation:
+
+- `A`: The input list of sortable items.
+- `n`: The number of elements in the list.
+- The outer loop `(for i)` iterates over each element in the list.
+- The inner loop `(for j)` compares adjacent elements and swaps them if they are in the wrong order.
+- The condition `A[j] > A[j+1]` checks if the elements are in the wrong order, and if true, they are swapped.
