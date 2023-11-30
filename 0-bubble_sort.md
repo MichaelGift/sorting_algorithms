@@ -86,3 +86,6 @@ Explanation:
 - The outer loop `(for i)` iterates over each element in the list.
 - The inner loop `(for j)` compares adjacent elements and swaps them if they are in the wrong order.
 - The condition `A[j] > A[j+1]` checks if the elements are in the wrong order, and if true, they are swapped.
+
+## Video example
+[Video](https://www.youtube.com/watch?v=9I2oOAr2okY)
